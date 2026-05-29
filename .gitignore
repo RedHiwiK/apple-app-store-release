@@ -1,0 +1,24 @@
+.DS_Store
+.idea/
+.vscode/
+*.log
+.env
+.env.local
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Apple 凭据 / 私钥 / 证书，绝不入库
+*.p8
+*.p12
+*.cer
+*.mobileprovision
+AuthKey_*.p8
+private/
+secrets/
+
+# 演示视频含演示账号操作，不入库（见 SKILL.md "项目目录约定"）
+demo-video.mp4
+**/review/demo-video.mp4

@@ -40,6 +40,7 @@
 - [ ] Bundle ID 在 Certificates, Identifiers & Profiles 已注册
 - [ ] 必要的 Capabilities 都已启用（Push / iCloud / Sign in with Apple / App Groups 等）
 - [ ] ASC 后台 App 记录已创建，拿到 App ID（SKU + Primary Language 都填了）
+- [ ] **（若用 CloudKit）schema 已在 CloudKit Console 从 Development「Deploy 到 Production」**（[icloud.developer.apple.com](https://icloud.developer.apple.com/) → 选 container → Deploy Schema Changes…；Development schema 不会自动同步到 Production，漏做会导致正式用户报 record type / field 不存在；**无公开 API，只能在 Console 手动点**，`xcrun cktool export-schema/import-schema` 只能管 schema 文件本身，不做环境 promote）
 
 ### 项目代码 & 配置
 - [ ] `PrivacyInfo.xcprivacy` 已建（Xcode 15+ 必须，含第三方 SDK 的隐私声明）
@@ -153,6 +154,7 @@
 - [ ] **加了新功能** → metadata Description 是否需要更新 / Review Notes 需要补新路径 / 演示视频是否要重录
 - [ ] **加了新 IAP / 订阅** → ASC 后台创建商品 + 本地化 + 价格 + Review Notes 补 SKU 说明
 - [ ] **改了订阅 Paywall** → 重新核对订阅类 App 七项必含元素
+- [ ] **改了 CloudKit schema**（新增 record type / 字段 / 索引） → 上线前必须在 CloudKit Console 重新「Deploy 到 Production」，否则正式用户取不到新字段（仅 Console 手动，无 API）
 - [ ] **加了新 SDK** → `PrivacyInfo.xcprivacy` 同步 + ASC App Privacy 问卷同步
 - [ ] **加了新硬件能力**（相机/相册/定位等） → `Info.plist` 加对应 `NSXxxUsageDescription`
 - [ ] **改了核心功能流程** → 演示视频更新
